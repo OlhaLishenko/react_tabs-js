@@ -1,15 +1,14 @@
-// import { tabs } from '../../App';
 import { TabElement } from '../TabElement';
 
-export const Tabs = ({ activeTab, setActiveTab }) => {
+export const Tabs = ({ activeTabId, onTabSelected }) => {
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
-        <TabElement activeTab={activeTab} setActiveTab={setActiveTab} />
+        <TabElement activeTabId={activeTabId} onTabSelected={onTabSelected} />
       </div>
 
       <div className="block" data-cy="TabContent">
-        {activeTab.content}
+        {activeTabId.content}
       </div>
     </div>
   );

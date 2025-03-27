@@ -1,18 +1,22 @@
 import cn from 'classnames';
 import { tabs } from '../../App';
 
-export const TabElement = ({ activeTab, setActiveTab }) => {
+export const TabElement = ({ activeTabId, onTabSelected }) => {
   return (
     <ul>
       {tabs.map(tab => (
         <li
           className={cn({
-            'is-active': activeTab === tab,
+            'is-active': tab === activeTabId,
           })}
           data-cy="Tab"
           key={tab.id}
         >
-          <a href="#tab-1" data-cy="TabLink" onClick={() => setActiveTab(tab)}>
+          <a
+            href={`#${activeTabId.id}`}
+            data-cy="TabLink"
+            onClick={() => onTabSelected(tab)}
+          >
             {tab.title}
           </a>
         </li>
